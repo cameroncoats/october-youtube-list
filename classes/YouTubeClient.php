@@ -58,7 +58,7 @@ class YouTubeClient
             $params = array('videoId' => implode(',',$videoIDsOnly),
                 'order' => 'date',
                 'maxResults' => $maxItems);
-            $results = $this->service->videos->list('id,snippet', $params);
+            $results = $this->service->Videos->list('id,snippet', $params);
 
             // Parse the results
             $videos = [];
