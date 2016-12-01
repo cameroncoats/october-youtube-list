@@ -52,8 +52,8 @@ class YouTubeClient
             $videoIDsOnly = array();
             $categoriesByID = array();
             foreach($videoIDArray as $vid){
-                $videoIDsOnly[] = $vid.video_id;
-                $categoriesByID[$vid.video_id] = $vid.category;
+                $videoIDsOnly[] = $vid['video_id'];
+                $categoriesByID[$vid['video_id']] = $vid['category'];
             }
             $params = array('videoId' => implode(',',$videoIDsOnly),
                 'order' => 'date',
@@ -117,8 +117,7 @@ class YouTubeClient
         // // Build the query and submit it
         $videoIDsOnly = array();
         foreach($videoIDArray as $vid){
-            $videoIDsOnly[] = $vid.video_id;
-            $categoriesByID[$vid.video_id] = $vid.category;
+            $videoIDsOnly[] = $vid['video_id'];
         }
         return 'cameroncoats_ytvideos_' . implode(',',$videoIDsOnly) . '_' . $maxItems . '_' . $thumbResolution;
     }
