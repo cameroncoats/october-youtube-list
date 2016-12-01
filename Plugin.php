@@ -36,7 +36,7 @@ class Plugin extends PluginBase
     {
         return [
             'config' => [
-                'label'       => 'YouTube',
+                'label'       => 'YouTube from List',
                 'icon'        => 'icon-youtube-play',
                 'description' => 'Configure YouTube API Key and Video settings',
                 'class'       => 'Cameroncoats\YouTube\Models\Settings',
@@ -53,7 +53,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            '\Cameroncoats\YouTube\Components\VideoList' => 'VideoList'
+            '\Cameroncoats\YouTube\Components\Videos' => 'Videos'
         ];
     }
 
