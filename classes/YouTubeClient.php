@@ -56,49 +56,48 @@ class YouTubeClient
                 $categoriesByID[$vid['video_id']] = $vid['category'];
             }
             $params = array('videoId' => implode(',',$videoIDsOnly),
-                'order' => 'date',
                 'maxResults' => $maxItems);
-            $results = $this->service->Videos->list('id,snippet', $params);
+            $results = $this->service->videos->listVideos('statistics,snippet', $params);
 
             // Parse the results
             $videos = [];
             foreach ($results['items'] as $item) {
 
-                if ($item->getId()->getKind() != 'youtube#video') {
+                if ($item['kind'] != 'youtube#video') {
                     continue;
                 }
 
                 // Get the desired thumbnail resolution, YouTube's API doesn't support a proper high-res thumbnail
-                $thumbnails = $item->snippet->getThumbnails();
+                $thumbnails = $item['snippet']['thumbnails'];
                 switch($thumbResolution)
                 {
                     case 'full-resolution':
-                        $thumbnail = 'https://img.youtube.com/vi/' . $item->getId()->getVideoId() . '/maxresdefault.jpg';
+                        $thumbnail = 'https://img.youtube.com/vi/' . $item['id'] . '/maxresdefault.jpg';
                         break;
                     case 'default':
-                        $thumbnail = $thumbnails->getDefault()->url;
+                        $thumbnail = $thumbnails['default']['url'];
                         break;
                     case 'medium':
-                        $thumbnail = $thumbnails->getMedium()->url;
+                        $thumbnail = $thumbnails['medium']['url'];
                         break;
                     case 'high':
-                        $thumbnail = $thumbnails->getHigh()->url;
+                        $thumbnail = $thumbnails['high']['url'];
                         break;
                     default:
-                        $thumbnail = $thumbnails->getDefault()->url;
+                        $thumbnail = $thumbnails['default']['url'];
                         break;
                 }
 
                 array_push($videos, array(
-                    'id'            => $item->getId()->getVideoId(),
-                    'link'          => 'https://youtube.com/watch?v=' . $item->getId()->getVideoId(),
-                    'title'         => $item->getSnippet()->getTitle(),
-                    'views'         => $item->getStatistics()->getViewCount(),
-                    'likes'         => $item->getStatistics()->getLikeCount(),
+                    'id'            => $item['id'],
+                    'link'          => 'https://youtube.com/watch?v=' . $item['id'],
+                    'title'         => $item['snippet']['tittle'],
+                    'views'         => $item['statistics']['viewCount'],
+                    'likes'         => $item['statistics']['likeCount'],
                     'thumbnail'     => $thumbnail,
-                    'category'      => $categoriesByID[$item->getId()->getVideoId()],
-                    'description'   => $item->getSnippet()->getDescription(),
-                    'published_at'  => Carbon::parse($item->getSnippet()->getPublishedAt())
+                    'category'      => $categoriesByID[$item['id']],
+                    'description'   => $item['snippet']['description'],
+                    'published_at'  => Carbon::parse($item['snippet']['publishedAt'])
                 ));
             }
             return $videos;
