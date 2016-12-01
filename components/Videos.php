@@ -59,7 +59,7 @@ class Videos extends ComponentBase
                                         Settings::get('cache_time'),
                                         function() use ($videoIDArray, $maxItems, $thumbResolution)
         {
-            return  YouTubeClient::instance()->getLatest($videoIDArray, $maxItems, $thumbResolution);
+            return  YouTubeClient::instance()->getList($videoIDArray, $maxItems, $thumbResolution);
         });
     }
 
