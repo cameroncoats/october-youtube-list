@@ -1,0 +1,8 @@
+{
+    "name": "cameroncoats/october-youtube",
+    "description": "Gets the specified youtube videos",
+    "require": {
+        "php": ">=5.4.0",
+        "google/apiclient": "^2.0.0@RC"
+    }
+}
