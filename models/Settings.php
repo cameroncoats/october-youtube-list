@@ -1,4 +1,4 @@
-<?php namespace cameroncoats\YouTube\Models;
+<?php namespace Cameroncoats\YouTube\Models;
 
 use Model;
 use Validation;

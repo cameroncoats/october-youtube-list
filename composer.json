@@ -1,5 +1,5 @@
 {
-    "name": "cameroncoats/october-youtube",
+    "name": "Cameroncoats/october-youtube",
     "description": "Gets the specified youtube videos",
     "require": {
         "php": ">=5.4.0",

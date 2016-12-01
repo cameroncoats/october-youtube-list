@@ -1,7 +1,7 @@
-<?php namespace cameroncoats\YouTube\Classes;
+<?php namespace Cameroncoats\YouTube\Classes;
 
 use Google_Client;
-use cameroncoats\YouTube\Models\Settings;
+use Cameroncoats\YouTube\Models\Settings;
 use Carbon\Carbon;
 use October\Rain\Exception\ApplicationException;
 

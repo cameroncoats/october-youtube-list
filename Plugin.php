@@ -1,4 +1,4 @@
-<?php namespace cameroncoats\YouTube;
+<?php namespace Cameroncoats\YouTube;
 
 use System\Classes\PluginBase;
 
@@ -39,7 +39,7 @@ class Plugin extends PluginBase
                 'label'       => 'YouTube',
                 'icon'        => 'icon-youtube-play',
                 'description' => 'Configure YouTube API Key and Video settings',
-                'class'       => 'cameroncoats\YouTube\Models\Settings',
+                'class'       => 'Cameroncoats\YouTube\Models\Settings',
                 'order'       => 600
             ]
         ];
@@ -53,7 +53,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            '\cameroncoats\YouTube\Components\VideoList' => 'VideoList'
+            '\Cameroncoats\YouTube\Components\VideoList' => 'VideoList'
         ];
     }
 

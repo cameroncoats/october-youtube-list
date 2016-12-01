@@ -1,9 +1,9 @@
-<?php namespace cameroncoats\YouTube\Components;
+<?php namespace Cameroncoats\YouTube\Components;
 
 use Cache;
-use cameroncoats\YouTube\Models\Settings;
+use Cameroncoats\YouTube\Models\Settings;
 use Cms\Classes\ComponentBase;
-use cameroncoats\YouTube\Classes\YouTubeClient;
+use Cameroncoats\YouTube\Classes\YouTubeClient;
 
 
 /**
