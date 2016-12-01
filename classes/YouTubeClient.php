@@ -114,7 +114,13 @@ class YouTubeClient
     public function getLatestCacheKey($videoIDArray, $maxItems, $thumbResolution)
     {
         // Components with the same channel and item count will use the same cached response
-        return 'cameroncoats_ytvideos_' . implode(',',$videosArray) . '_' . $maxItems . '_' . $thumbResolution;
+        // // Build the query and submit it
+        $videoIDsOnly = array();
+        foreach($videoIDArray as $vid){
+            $videoIDsOnly[] = $vid.video_id;
+            $categoriesByID[$vid.video_id] = $vid.category;
+        }
+        return 'cameroncoats_ytvideos_' . implode(',',$videoIDsOnly) . '_' . $maxItems . '_' . $thumbResolution;
     }
 
 }
