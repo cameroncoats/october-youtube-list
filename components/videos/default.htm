@@ -1,17 +1,19 @@
 {% set videos = __SELF__.videos %}
 {% if videos %}
     <div class="container-fluid">
-        {% for video_row in videos|batch(4) %}
-            <div class="row">
-                {% for video in video_row %}
-                    <div class="col-sm-3">
-                        <a href="{{ video.link }}" target="_blank">
-                            <img class="img-responsive center-block" src="{{ video.thumbnail }}" alt="{{ video.title }}">
-                            <span class="center-block text-center">{{ video.title }}</span>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
+        {% for video in videos %}
+<div class="portfolio_block columns3   pretty" data-animated="fadeIn">
+					<div class="element col-sm-4   gall branding">
+						<a class="plS" href="{{ video.link }}">
+							<img class="img-responsive picsGall" src="{{ video.thumbnail }}" alt="pic1 Gallery"/>
+						</a>
+						<div class="view project_descr ">
+							<h3><a href="{{ video.link }}">{{ video.title }}</a></h3>
+							<ul>
+								<li><i class="fa fa-eye"></i>{{video.views}}</li>
+								<li><a class="heart" href="{{video.link}}"><i class="fa-heart-o"></i>{{video.likes}}</a></li>
+							</ul>
+						</div>
+					</div>
         {% endfor %}
-    </div>
 {% endif %}
