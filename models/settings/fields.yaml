@@ -5,16 +5,18 @@ fields:
         commentAbove: YouTube API Key
         commentBelow: Get a YouTube API Key by creating a project at  https://console.developers.google.com/project and enable the YouTube Data API v3
     videos:
-    type: repeater
-    form:
-        fields:
-            video_id:
-                label: Video ID
-                type: text
-            details:
-                label: Category
-                type: radio
-                options:
-                    hiphop: HipHop
-                    music: Other Music
-                    other: Other
+        commentAbove: List of Youtube Videos
+        type: repeater
+        label: Videos
+        form:
+            fields:
+                video_id:
+                    label: Video ID
+                    type: text
+                category:
+                    label: Category
+                    type: radio
+                    options:
+                        hiphop: HipHop
+                        music: Other Music
+                        other: Other
