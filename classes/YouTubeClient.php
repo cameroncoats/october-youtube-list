@@ -91,7 +91,7 @@ class YouTubeClient
                 array_push($videos, array(
                     'id'            => $item['id'],
                     'link'          => 'https://youtube.com/watch?v=' . $item['id'],
-                    'title'         => $item['snippet']['tittle'],
+                    'title'         => $item['snippet']['title'],
                     'views'         => $item['statistics']['viewCount'],
                     'likes'         => $item['statistics']['likeCount'],
                     'thumbnail'     => $thumbnail,
