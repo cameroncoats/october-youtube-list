@@ -55,7 +55,7 @@ class YouTubeClient
                 $videoIDsOnly[] = $vid['video_id'];
                 $categoriesByID[$vid['video_id']] = $vid['category'];
             }
-            $params = array('videoId' => implode(',',$videoIDsOnly),
+            $params = array('id' => implode(',',$videoIDsOnly),
                 'maxResults' => $maxItems);
             $results = $this->service->videos->listVideos('statistics,snippet', $params);
 
